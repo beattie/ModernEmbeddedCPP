@@ -11,9 +11,6 @@ Currently using Eclipse:
 Version: 2023-12 (4.30.0)  
 Build id: 20231201-2043  
 
-Currently I have a whole boatload of plugins I need to identify which ones a needed.
-
-Tools gcc-arm-none-eabi-10.3-2021.10 (probably any reasonably recent arm-none-eabi toolchain)
-OpenOCD 0.11.0 from apt packages
+See the ReadMe in EclipseWorkspace for hints of setting up the build environment.
 
 I'm a Vi user so I use the Vrapper eclipse plugin
