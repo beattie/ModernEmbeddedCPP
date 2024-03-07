@@ -1,6 +1,6 @@
 # Blinky
 
-Project to Demonstrate and Debug running code on a STM32 Nucleo64-F411RE
+Project to Debug the configuration and to Demonstrate and Debug running code on a STM32 Nucleo64-F411RE
 
 To enable debugging in eclipse Run -> Debug Configurations
 double click GDB OpenOCD Debugging
