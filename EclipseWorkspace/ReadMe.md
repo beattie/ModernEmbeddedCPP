@@ -2,11 +2,33 @@
 
 Host: Debian 12
 
-Download [Eclipse Installer](https://www.eclipse.org/downloads)
-
-Run Eclipse Installer Select: **Eclipse IDE for Embedded C/C++ Developers**
-
 Toolchain:  
+[!NOTE]
+> I spent a significant amount of frustration, The evolving notes are retained below what follows immediatly is my current approach
+
+I'm using toolchains from the apt packages because they seem to be a litte better. One thing is that
+gdb-multiarch does not work, I tried **arm-gnu-toolchain-13.2.rel1**, **12.2** and **12.3** and the
+gdb included failed to run with some
+python errors and I have been unable to find a solution. I had previously been using
+**gcc-arm-none-eabi-10.3-2021.10** so I'm installing that for gdb at some point the **Embedded C/C++**
+plugins locate the path for the toolchain so I'd suggest installing the toolchain then eclipse and then
+**gcc-arm-none-eabi**.
+* sudo apt install gcc-arm-none-eabi openocd
+* Download [Eclipse Installer](https://www.eclipse.org/downloads)
+* Run Eclipse Installer Select: **Eclipse IDE for Embedded C/C++ Developers**
+  * Window -> Preferences -> MCU -> Global Arm Toolchain Paths: select GNU Tools for ...
+    * Set path to /usr/bin
+  * Window -> Preferences -> MCU -> Global OpenOCD Path: Set Folder to /usr/bin
+* Download **gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2** from the ARM Developer [website](https://developer.arm.com/downloads/-/gnu-rm)
+* Extract the tarball is some convinent location (/opt ?)
+  * arm-none-eabi-gdb may need **sudo apt install libncurses5 libncursesw5**
+* add the bin directory from **gcc-arm-none-eabi-10.3** to the end of **$PATH**
+
+To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration**
+
+
+
+---
 [!WARNING]
 > Changing the toolchain (paths etc..) can be tricky for instance I originally installed and rand eclipse with the standard toolchain (from apt packages) then installes the ARM Developer tool chain and eclipse could not find the arm compiler. This was probably related to the Embedded ARM plugins and likely could have been fixed but I removed and installed eclipse (mostlt to verify the plugins worked) but I don't have a clear understanding.
 
@@ -25,7 +47,4 @@ Or
 I want to try PicoLibc so : sudo apt install picolibc-arm-none-eabi libstdc++-arm-none-eabi-picolibc
 
 ---
-To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration**
 
-Debugger: confirm that "Actual executable:" is correct, if a bad path name -> Close  
-Window -> Preferences -> MCU -> Global OpenOCD Path: enter correct executable and path
