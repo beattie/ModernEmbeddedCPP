@@ -23,6 +23,7 @@ plugins locate the path for the toolchain so I'd suggest installing the toolchai
 * Extract the tarball is some convinent location (/opt ?)
   * arm-none-eabi-gdb may need **sudo apt install libncurses5 libncursesw5**
 * Create a dummy **Hello World Arm C++ Project**. Project -> Properties -> c/C++ Build -> Environment. Edit PATH make note of the directories in the path, copy arm-none-eabi-gdb into one of those directories.
+  * Alternately, when settung up a **Debug Configuration** add thr path to Executable name in the GDB Ckient Setup.
 
 To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration**
 
