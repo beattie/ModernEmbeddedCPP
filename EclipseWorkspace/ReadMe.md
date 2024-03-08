@@ -25,7 +25,8 @@ plugins locate the path for the toolchain so I'd suggest installing the toolchai
 * Create a dummy **Hello World Arm C++ Project**. Project -> Properties -> c/C++ Build -> Environment. Edit PATH make note of the directories in the path, copy arm-none-eabi-gdb into one of those directories.
   * Alternately, when settung up a **Debug Configuration** add thr path to Executable name in the GDB Ckient Setup.
 
-To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration**
+To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration -> Debugger**
+Make sure in **Open Setup** that the **Actual executable** is correct. Set **Configuration** to "-f board/st_nucleo_f4.cfg". (check /usr/share/openocd/scripts/board for other boards)
 
 
 
