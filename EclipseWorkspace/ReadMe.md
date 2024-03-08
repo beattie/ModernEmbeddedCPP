@@ -4,7 +4,7 @@ Host: Debian 12
 
 Toolchain:  
 [!NOTE]
-> I spent a significant amount of frustration, The evolving notes are retained below what follows immediatly is my current approach
+> I spent a significant amount of frustration with the toolchain and eclipse, The evolving notes are retained below what follows immediatly is my current approach
 
 I'm using toolchains from the apt packages because they seem to be a litte better. One thing is that
 gdb-multiarch does not work, I tried **arm-gnu-toolchain-13.2.rel1**, **12.2** and **12.3** and the
