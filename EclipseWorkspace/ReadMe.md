@@ -14,6 +14,9 @@ an ARM cross toolchain can be obtained either from the ARM Developer [website](h
 
 OpenOCD can be installed from most package repos e.g.: **sudo apt install openocd**
 
+[!WARNING]
+> Debian 12 required **sudo apt install libncursesw5
+
 Or
 
 ~~sudo apt install gcc-arm-none-eabi gdb-multiarch openocd~~  
