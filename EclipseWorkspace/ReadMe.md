@@ -22,7 +22,7 @@ plugins locate the path for the toolchain so I'd suggest installing the toolchai
 * Download **gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2** from the ARM Developer [website](https://developer.arm.com/downloads/-/gnu-rm)
 * Extract the tarball is some convinent location (/opt ?)
   * arm-none-eabi-gdb may need **sudo apt install libncurses5 libncursesw5**
-* Create a dummy **Hello World Arm C++ Project**. Project -> Properties -> c/C++ Build -> Environment. Edit PATH make note of the directroies in the path, copy arm-none-eabi-gdb into one of those directories.
+* Create a dummy **Hello World Arm C++ Project**. Project -> Properties -> c/C++ Build -> Environment. Edit PATH make note of the directories in the path, copy arm-none-eabi-gdb into one of those directories.
 
 To Debug the Nucleo64-F411RE **Run -> Debug Configurations <Right Click> GDB OpenOCD Debugging -> New Configuration**
 
