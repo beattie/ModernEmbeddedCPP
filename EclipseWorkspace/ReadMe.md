@@ -11,6 +11,7 @@ an ARM cross toolchain can be obtained either from the ARM Developer [website](h
 
 Or
 
-sudo apt install gcc-arm-none-eabi gdb-multiarch openocd
+~~sudo apt install gcc-arm-none-eabi gdb-multiarch openocd~~  
+The above should work but currently the gdb-multiarch does not seem to work on Debian 12 so I'll be using the toolchain in thge first section
 
 I want to try PicoLibc so : sudo apt install picolibc-arm-none-eabi libstdc++-arm-none-eabi-picolibc
