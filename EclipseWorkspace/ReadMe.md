@@ -12,6 +12,8 @@ Toolchain:
 
 an ARM cross toolchain can be obtained either from the ARM Developer [website](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)  (get one with arm-none-eabi)
 
+OpenOCD can be installed from most package repos e.g.: **sudo apt install openocd**
+
 Or
 
 ~~sudo apt install gcc-arm-none-eabi gdb-multiarch openocd~~  
