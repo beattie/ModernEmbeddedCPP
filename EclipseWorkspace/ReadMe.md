@@ -26,7 +26,6 @@ Currently a number of Embedded C++ projects are included.  To access them **File
 
 Empty - A Nucleo64-F411RE Stripped of any code not absolutely needed (Work in progress)  
 Blinky - A Nucleo64-F411RE project from the Embedded C/C++ plugin  
-SimpleLed - A Nucleo64-F411RE excersixe from the Udemy course _Modern Bare-Metal Embedded C++ Programming from Ground Up_  
 
 ---
 
