@@ -1,16 +1,3 @@
-#if 0
-#include <iostream>
-using namespace std;
-
-#include <stdlib/h>
-
-int main()
-{
-	cout << "Hello GutAndStuff!" << endl;
-	return 0;
-	write(0, (const void *)0, 0);
-}
-#else
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
@@ -66,7 +53,7 @@ int main()
 //#pragma GCC diagnostic ignored "-Wmissing-declarations"
 //#pragma GCC diagnostic ignored "-Wreturn-type"
 
-int main(int argc, char *argv[])
+int main()
 {
 	// At this stage the system clock should have already been configured
 	// at high speed.
@@ -80,4 +67,3 @@ int main(int argc, char *argv[])
 //#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------
-#endif
