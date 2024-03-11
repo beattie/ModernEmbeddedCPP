@@ -32,21 +32,11 @@
 
 #include <errno.h>
 #include "diag/trace.h"
+#include "uart.h"
 
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 // ----------------------------------------------------------------------------
 
-// When using retargetted configurations, the standard write() system call,
-// after a long way inside newlib, finally calls this implementation function.
-
-// Based on the file descriptor, it can send arrays of characters to
-// different physical devices.
-
-// Currently only the output and error file descriptors are tested,
-// and the characters are forwarded to the trace device, mainly
-// for demonstration purposes. Adjust it for your specific needs.
-
-// For freestanding applications this file is not used and can be safely
-// ignored.
 
 ssize_t
 _write(int fd, const char *buf, size_t nbyte);
@@ -60,6 +50,13 @@ ssize_t _write(int fd __attribute__((unused)),
 	if (fd == 1 || fd == 2) {
 		return trace_write(buf, nbyte);
 	}
+	if (fd == 0 || fd == 3) {
+		uart2_write(buf, nbyte);
+	}
+#else
+	if (fd <= 3) {
+		uart2_write(buf, nbyte);
+	}
 #endif // TRACE
 
 	errno = ENOSYS;
@@ -67,5 +64,16 @@ ssize_t _write(int fd __attribute__((unused)),
 }
 
 // ----------------------------------------------------------------------------
+int _getc(int fd)
+{
+	return uart2_getc();
+}
+
+ssize_t _read(int fd, char *buf, size_t nbyte)
+{
+	return -1;
+}
+// ----------------------------------------------------------------------------
+#pragma GCC diagnostic pop
 
 #endif // !defined(OS_USE_SEMIHOSTING) && !(__STDC_HOSTED__ == 0)

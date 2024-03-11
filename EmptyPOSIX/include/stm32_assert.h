@@ -31,6 +31,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include "stdint.h"
 
 #if ! defined(assert_param)
 #if defined(USE_FULL_ASSERT)

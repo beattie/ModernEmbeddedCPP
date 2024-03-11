@@ -29,6 +29,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "diag/trace.h"
+#include "stm32f4xx.h"
+#include "uart.h"
+#include <cstring>
+#ifndef NO_IOSTREAM
+#include <iostream>
+#endif
+
+extern UART_HandleTypeDef huart2;
 
 // ----------------------------------------------------------------------------
 //
@@ -54,10 +62,20 @@ int main(int argc, char *argv[])
 {
 	// At this stage the system clock should have already been configured
 	// at high speed.
+	InitUART2();
+	const char *Hello = "\n\rHello from the UART\n\r";
+	write(uart_fd, Hello, strlen(Hello));
+
+#ifndef NO_IOSTREAM
+	std::cout << "Hello from C++ iostream" << std::endl;
+#endif
 
 	// Infinite loop
 	while (1) {
-		// Add your code here.
+		int ch = uart2_getc();
+		if (ch >= 0) {
+			uart2_printf("Input = \"%c\"\n\r", ch);
+		}
 	}
 }
 
