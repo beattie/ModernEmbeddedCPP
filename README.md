@@ -22,8 +22,5 @@ especially the print ability this eliminates any need to UART I/O for debugging 
 unless you want user input (which I have been unable to get working).
 
 ---
-### UART and Clocks
-In trying to setup a serial port to read user input I came
-across [How to use STM32 Nucleo serial port](https://www.carminenoviello.com/2015/03/02/how-to-use-stm32-nucleo-serial-port/)
-which mentions that the Embedded C/C++ plugin generates code that creates incorrect speeds.
-So I have loaded STM32Cube to genererate clock setup and USART initialization.
+### UART
+
