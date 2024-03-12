@@ -25,8 +25,8 @@ Make sure in **OpenOCD Setup** that the **Actual executable** is correct. Set **
 Currently a number of Embedded C++ projects are included.  To access them **File -> Import -> Existing Projects into Workspace -> Browse** (find a project) **-> Open -> Finish**
 
 * Blinky - A Nucleo64-F411RE project from the Embedded C/C++ plugin
-* EmptyPOSIX - A Nucleo64-F411RE with UART I/O (WIP) that can be used to start a new project
-  * While I do not whish to denigrate the work that went into it and the quality of the work, I Personally find the STMicro HAL to be Spagetti code of the highest order that completely obscures the underlying peripherial access, so I'm working to eliminate it. This is a work in progress and may take quite a while.
+* EmptyPOSIX - A Nucleo64-F411RE with UART I/O that can be used to start a new project
+  * While I do not whish to denigrate the work that went into it and the quality of that work, I Personally find the STMicro HAL to be Spagetti code of the highest order that completely obscures the underlying peripherial access, so I'm working to eliminate it. This is a work in progress and may take quite a while.
 
 ---
 
