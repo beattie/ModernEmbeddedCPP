@@ -53,8 +53,15 @@ void InitUART2()
 
 int uart2_putc(char ch)
 {
-	while (!(USART2->SR & 0x0080)) {
+	while (!(USART2->SR & USART_SR_TXE)) {
 	} //wait until Tx empty
 	USART2->DR = (ch & 0xFF);
 	return 1;
+}
+
+int uart2_getc(void)
+{
+	while(!(USART2->SR & USART_SR_RXNE)){} // wait till full
+		return USART2->DR;
+
 }
