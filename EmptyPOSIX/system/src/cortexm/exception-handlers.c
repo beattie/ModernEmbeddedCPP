@@ -615,7 +615,7 @@ SysTick_Handler (void)
 {
   // DO NOT loop, just return.
   // Useful in case someone (like STM HAL) inadvertently enables SysTick.
-  ;
+  HAL_IncTick();
 }
 
 // ----------------------------------------------------------------------------
