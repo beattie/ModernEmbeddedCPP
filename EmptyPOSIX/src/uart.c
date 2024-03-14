@@ -79,7 +79,7 @@ int uart2_write(const char *buf, unsigned nbyte)
 	return nbyte;
 }
 
-int uart2_printf(char *format, ...)
+int uart2_printf(const char *format, ...)
 {
 	static char printbuf[1024];
 	ssize_t	s;
@@ -92,3 +92,30 @@ int uart2_printf(char *format, ...)
 	}
 	return s;
 }
+
+int uart2_puts(const char *buf)
+{
+	return uart2_write(buf, strlen(buf));
+}
+
+char *uart2_gets(char * buf, size_t n)
+{
+	ssize_t	r = 0;
+
+	while(--n > 0) {	// leave one byte for null termination
+		int c = uart2_getc();
+		if (c < 0) {	// if error or EOF
+			buf[r] = 0;
+			return buf;
+		}
+		if (c == '\n' || c == '\r') {
+			buf[r++] = c;
+			buf[r] = 0;
+			return buf;
+		}
+		buf[r++] = uart2_getc();
+	}
+	buf[r] = 0;
+	return buf;
+}
+

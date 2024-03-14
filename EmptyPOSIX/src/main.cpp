@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	while (1) {
 		int ch = uart2_getc();
 		if (ch >= 0) {
-			uart2_printf("Input = \"%c\"\n\r", ch);
+			uart2_printf("Input = \"%c\" uwTick %u\n\r", ch, HAL_GetTick());
 		}
 	}
 }

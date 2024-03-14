@@ -21,6 +21,8 @@ int uart2_putc(char);
 int uart2_getc(void);
 int uart2_write(const char *, unsigned);
 int uart2_printf(const char *, ...);
+int uart2_puts(const char *);
+char *uart2_gets(char * buf, size_t n);
 
 #ifdef __cplusplus
 	}
