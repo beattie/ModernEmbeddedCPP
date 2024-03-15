@@ -15,7 +15,7 @@ const int uart_fd = 3;
 #define uart_fd	(3)
 #endif
 
-void InitUART2 (void);
+void uart2_init(void);
 
 int uart2_putc(char);
 int uart2_getc(void);

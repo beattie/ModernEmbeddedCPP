@@ -1,5 +1,5 @@
 /*
- * This file is part of the µOS++ distribution.
+ * This file started as part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
  * Copyright (c) 2014 Liviu Ionescu.
  *
@@ -38,31 +38,12 @@
 
 extern UART_HandleTypeDef huart2;
 
-// ----------------------------------------------------------------------------
-//
-// STM32F4 empty sample (trace via DEBUG).
-//
-// Trace support is enabled by adding the TRACE macro definition.
-// By default the trace messages are forwarded to the DEBUG output,
-// but can be rerouted to any device or completely suppressed, by
-// changing the definitions required in system/src/diag/trace-impl.c
-// (currently OS_USE_TRACE_ITM, OS_USE_TRACE_SEMIHOSTING_DEBUG/_STDOUT).
-//
-
-// ----- main() ---------------------------------------------------------------
-
-// Sample pragmas to cope with warnings. Please note the related line at
-// the end of this function, used to pop the compiler diagnostics status.
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-parameter"
-#pragma GCC diagnostic ignored "-Wmissing-declarations"
-#pragma GCC diagnostic ignored "-Wreturn-type"
-
-int main(int argc, char *argv[])
+int main()
 {
 	// At this stage the system clock should have already been configured
 	// at high speed.
-	InitUART2();
+	uart2_init();
+#if 1	// Demo code
 	const char *Hello = "\n\rHello from the UART\n\r";
 	write(uart_fd, Hello, strlen(Hello));
 
@@ -72,13 +53,18 @@ int main(int argc, char *argv[])
 
 	// Infinite loop
 	while (1) {
-		int ch = uart2_getc();
-		if (ch >= 0) {
-			uart2_printf("Input = \"%c\" uwTick %u\n\r", ch, HAL_GetTick());
-		}
-	}
-}
+		char buf[64];
 
-#pragma GCC diagnostic pop
+		uart2_puts ("<< ");
+		uart2_gets (buf, sizeof(buf));
+		char *newline;
+		if ((newline = rindex (buf, '\n')) != nullptr) {
+			*newline = 0;	// get rid of newline
+		}
+		uart2_printf ("Input = \"%s\"\n\r uwTick %u\n\r", buf,
+				HAL_GetTick());
+	}
+#endif // end of Demo code
+}
 
 // ----------------------------------------------------------------------------
