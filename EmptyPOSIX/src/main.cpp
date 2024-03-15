@@ -42,7 +42,7 @@ int main()
 {
 	// At this stage the system clock should have already been configured
 	// at high speed.
-	uart2_init();
+	uart2_init(115200);
 #if 1	// Demo code
 	const char *Hello = "\n\rHello from the UART\n\r";
 	write(uart_fd, Hello, strlen(Hello));

@@ -13,13 +13,10 @@
 #include "string.h"
 
 
-void uart2_init()
+void uart2_init(uint32_t bps)
 {
-
-	//RCC->AHB1ENR |= 0x1;		// Enable GPIOA clock/
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;	// Enable GPIOA clock/
-	//RCC->APB1ENR |= 0x20000;	// Enale USART2 clock/
-	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;	// Enale USART2 clock/
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;	// Enable USART2 clock/
 
 	// Configure PA2,PA3 for USART2 TX, RX/
 	GPIOA->AFR[0] |= 0x7700;	// 7 =0111, alt7 for usart2/
@@ -27,7 +24,7 @@ void uart2_init()
 
 	// pclk = 42,000,000
 	// BRR = pclk / (16*BPS) * 16 + 0.5
-	USART2->BRR  = 0x016c;	// 115200 baud @ 42Mhz/
+	USART2->BRR  = ((HAL_RCC_GetPCLK1Freq()/(bps/2))+1)/2;
 	USART2->CR1  = USART_CR1_RE | USART_CR1_TE;	// enbale Tx,Rx, 8-bit data/
 	USART2->CR2  = 0x000;						// 1 stop bit/
 	USART2->CR3  = 0x000;						// no flow control/
