@@ -26,6 +26,12 @@ unless you want user input (which I have been unable to get working).
 Some of the online courses I'm looking at use user input in their excersizes. I was unable to get semihosting console input so I cribbed some code to implement I/O to UART 2 on the Nucleo-64 board.
 
 ---
+### New and Malloc
+One technique used in Embedded Systems is static allocation. Dynamic allocation can result in
+unpredictable resource exaustion. I am experimenting with removing or restricting features
+such as C++ new,
+
+---
 ### Library debugging
 To analyse what is occuring in the library I built the deian packages and installed the .deb files, This created libraries with debugging info that pointed to the local source files used to build the libraries allowing single stepping through the library.
 
