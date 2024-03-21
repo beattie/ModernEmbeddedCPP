@@ -29,6 +29,10 @@
 #define GPIO_PUPD_UP	1
 #define GPIO_PUPD_DN	2
 
+#define PORTA	0
+#define PORTB	1
+#define PORTC	2
+
 class gpio {
 	public:
 		gpio(unsigned, unsigned, unsigned, unsigned, unsigned,
