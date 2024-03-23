@@ -33,5 +33,5 @@ such as C++ new,
 
 ---
 ### Library debugging
-To analyse what is occuring in the library I built the deian packages and installed the .deb files, This created libraries with debugging info that pointed to the local source files used to build the libraries allowing single stepping through the library.
+To analyse what is occuring in the library I built the debian packages and installed the .deb files, This created libraries with debugging info that pointed to the local source files used to build the libraries allowing single stepping through the library.
 
