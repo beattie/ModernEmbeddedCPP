@@ -7,5 +7,6 @@ like std::string, is one of the things that leads some to consifer C++
 unsuitable for embedded systems.
 
 Small embedded systems being my main focus, this project is a place to work on
-static/dynamic allocation. Initial work will try to disable new.
+static/dynamic allocation. Initial work will try to disable new. I tried to
+remove one implementation from the library but that seemed a little drastic.
 
